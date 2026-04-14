@@ -1,6 +1,6 @@
 # Picoclaw Management Script
 
-**Version:** 1.0
+**Version:** 1.1
 
 This is a terminal-based management script for [Picoclaw](https://github.com/sipeed/picoclaw) that allows you to easily manage Picoclaw processes, systemd service, logs, and configuration interface. It is designed to work in headless environments such as SSH sessions or embedded devices.
 
@@ -64,14 +64,24 @@ mkdir -p ~/.picoclaw/logs
 Menu options:
 
 1. Check if Picoclaw is running
-2. Start Picoclaw service
+2. Start Picoclaw service (gateway)
 3. Stop Picoclaw service
 4. Restart Picoclaw service
 5. View service status
 6. Picoclaw command status
 7. Configure Picoclaw (`picoclaw-launcher-tui`)
 8. View logs (highlight + filter)
-9. Exit
+9. Run 'picoclaw agent'
+10. Run 'picoclaw auth'
+11. Run 'picoclaw cron'
+12. Run 'picoclaw migrate'
+13. Run 'picoclaw model'
+14. Run 'picoclaw onboard'
+15. Run 'picoclaw skills'
+16. Run 'picoclaw update'
+17. Run 'picoclaw completion'
+18. Run 'picoclaw help'
+0. Exit
 
 ### Command-Line Arguments
 
@@ -85,6 +95,17 @@ Menu options:
 ./manage_picoclaw.sh picoclaw-status  # Run Picoclaw status command
 ./manage_picoclaw.sh configure        # Launch configuration interface
 ./manage_picoclaw.sh logs             # View logs with filter
+./manage_picoclaw.sh agent [args]     # Interact with the agent directly
+./manage_picoclaw.sh auth [args]      # Manage authentication
+./manage_picoclaw.sh completion [args]# Generate the autocompletion script
+./manage_picoclaw.sh cron [args]      # Manage scheduled tasks
+./manage_picoclaw.sh gateway          # Start picoclaw gateway (same as start)
+./manage_picoclaw.sh help [args]      # Help about any command
+./manage_picoclaw.sh migrate [args]   # Migrate to picoclaw
+./manage_picoclaw.sh model [args]     # Show or change the default model
+./manage_picoclaw.sh onboard [args]   # Initialize configuration and workspace
+./manage_picoclaw.sh skills [args]    # Manage skills
+./manage_picoclaw.sh update [args]    # Check and apply updates
 ```
 
 ---

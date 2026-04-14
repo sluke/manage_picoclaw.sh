@@ -189,13 +189,23 @@ function interactive_menu() {
     while true; do
         echo "================ Picoclaw Management Menu ================"
         echo "1) Check if Picoclaw is running"
-        echo "2) Start Picoclaw service"
+        echo "2) Start Picoclaw service (gateway)"
         echo "3) Stop Picoclaw service"
         echo "4) Restart Picoclaw service"
         echo "5) View service status"
         echo "6) Picoclaw command status"
         echo "7) Configure Picoclaw"
         echo "8) View logs (highlight + filter)"
+        echo "9) Run 'picoclaw agent'"
+        echo "10) Run 'picoclaw auth'"
+        echo "11) Run 'picoclaw cron'"
+        echo "12) Run 'picoclaw migrate'"
+        echo "13) Run 'picoclaw model'"
+        echo "14) Run 'picoclaw onboard'"
+        echo "15) Run 'picoclaw skills'"
+        echo "16) Run 'picoclaw update'"
+        echo "17) Run 'picoclaw completion'"
+        echo "18) Run 'picoclaw help'"
         echo "0) Exit"
         read -p "Select an option: " choice
         case $choice in
@@ -207,6 +217,16 @@ function interactive_menu() {
             6) picoclaw_status ;;
             7) configure_picoclaw ;;
             8) view_logs ;;
+            9) $PICOCLAW_PATH/picoclaw agent ;;
+            10) $PICOCLAW_PATH/picoclaw auth ;;
+            11) $PICOCLAW_PATH/picoclaw cron ;;
+            12) $PICOCLAW_PATH/picoclaw migrate ;;
+            13) $PICOCLAW_PATH/picoclaw model ;;
+            14) $PICOCLAW_PATH/picoclaw onboard ;;
+            15) $PICOCLAW_PATH/picoclaw skills ;;
+            16) $PICOCLAW_PATH/picoclaw update ;;
+            17) $PICOCLAW_PATH/picoclaw completion ;;
+            18) $PICOCLAW_PATH/picoclaw help ;;
             0) exit 0 ;;
             *) echo -e "${RED}Invalid selection${RESET}" ;;
         esac
@@ -230,6 +250,17 @@ else
         picoclaw-status) picoclaw_status ;;
         configure) configure_picoclaw ;;
         logs) view_logs ;;
+        agent) shift; $PICOCLAW_PATH/picoclaw agent "$@" ;;
+        auth) shift; $PICOCLAW_PATH/picoclaw auth "$@" ;;
+        completion) shift; $PICOCLAW_PATH/picoclaw completion "$@" ;;
+        cron) shift; $PICOCLAW_PATH/picoclaw cron "$@" ;;
+        gateway) start_service ;;
+        help) shift; $PICOCLAW_PATH/picoclaw help "$@" ;;
+        migrate) shift; $PICOCLAW_PATH/picoclaw migrate "$@" ;;
+        model) shift; $PICOCLAW_PATH/picoclaw model "$@" ;;
+        onboard) shift; $PICOCLAW_PATH/picoclaw onboard "$@" ;;
+        skills) shift; $PICOCLAW_PATH/picoclaw skills "$@" ;;
+        update) shift; $PICOCLAW_PATH/picoclaw update "$@" ;;
         *) echo -e "${RED}Unknown command${RESET}" ;;
     esac
 fi

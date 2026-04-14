@@ -2,7 +2,7 @@
 
 # ===============================================
 # Picoclaw Management Script (Final Version with Highlight + Log Filter)
-# Version: 1.0
+# Version: 1.1
 # Place in the same directory as picoclaw executable
 # ===============================================
 
@@ -11,7 +11,7 @@ PICOCLAW_PATH="$SCRIPT_DIR"
 SERVICE_NAME=picoclaw
 SERVICE_FILE="/etc/systemd/system/$SERVICE_NAME.service"
 LOG_DIR="$HOME/.picoclaw/logs"
-SCRIPT_VERSION="1.0"
+SCRIPT_VERSION="1.1"
 
 # ----------------------------
 # ANSI Colors
